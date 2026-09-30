@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0b0c" />
+    <meta name="description" content="Mosaic-M benchmarks real-time adaptation for manipulation under changing conditions." />
+    <title>Mosaic-M — Real-Time Adaptation for Manipulation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="Mosaic-M home">
+        <span class="mark">M</span><span>MOSAIC<span class="accent">—M</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#benchmark">Benchmark</a>
+        <a href="#tasks">Tasks</a>
+        <a href="#method">Method</a>
+        <a href="#news">Updates</a>
+      </nav>
+      <a class="nav-cta" href="https://github.com/" target="_blank" rel="noreferrer">View on GitHub <span>↗</span></a>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-media" aria-hidden="true">
+          <div class="media-tile tile-a"><video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?auto=format&fit=crop&w=900&q=80"><source src="https://cdn.coverr.co/videos/coverr-a-robotic-arm-1573/1080p.mp4" type="video/mp4" /></video></div>
+          <div class="media-tile tile-b"><video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=80"><source src="https://cdn.coverr.co/videos/coverr-robot-arm-1572/1080p.mp4" type="video/mp4" /></video></div>
+          <div class="media-tile tile-c"><video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=900&q=80"><source src="https://cdn.coverr.co/videos/coverr-robotic-arm-1574/1080p.mp4" type="video/mp4" /></video></div>
+          <div class="media-tile tile-d"><video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"><source src="https://cdn.coverr.co/videos/coverr-industrial-robot-1571/1080p.mp4" type="video/mp4" /></video></div>
+          <div class="media-tile tile-e"><video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=900&q=80"><source src="https://cdn.coverr.co/videos/coverr-robot-arm-1570/1080p.mp4" type="video/mp4" /></video></div>
+          <div class="media-tint"></div>
+        </div>
+        <div class="hero-content shell">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Open benchmark · manipulation in the wild</div>
+          <h1>You can’t do<br /><em>everything right</em><br />with a single shot<span class="accent">.</span></h1>
+          <p class="hero-copy">Mosaic-M measures whether a robot can notice, recover, and adapt — in real time — when the world refuses to follow the script.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#benchmark">Explore the benchmark <span>↓</span></a>
+            <a class="button button-ghost" href="#method">Read the paper <span>↗</span></a>
+          </div>
+          <div class="hero-meta"><span>Built on <strong>CL-Manip</strong></span><span class="line"></span><span>2026 release candidate</span></div>
+        </div>
+        <div class="scroll-hint"><span>Scroll to explore</span><span class="scroll-line"></span></div>
+      </section>
+
+      <section class="signal-strip">
+        <div class="shell signal-grid">
+          <div class="signal-label">The premise</div>
+          <p>Strong manipulation is not a single perfect action. It is a continuous loop of <b>perception → action → feedback → recovery</b>.</p>
+          <div class="signal-arrow">↘</div>
+        </div>
+      </section>
+
+      <section class="section shell" id="benchmark">
+        <div class="section-intro">
+          <div class="section-kicker">01 / Benchmark</div>
+          <h2>Test the moment<br /><span>things change.</span></h2>
+          <p>Most manipulation benchmarks reward getting the first move right. Mosaic-M asks a harder question: can your policy keep going when objects slip, goals shift, and observations arrive late?</p>
+        </div>
+        <div class="stat-grid">
+          <article class="stat-card"><span class="stat-number">08</span><span class="stat-label">real-world task families</span><span class="stat-detail">from pick-and-place to articulated objects</span></article>
+          <article class="stat-card"><span class="stat-number">04</span><span class="stat-label">adaptation regimes</span><span class="stat-detail">visual, physical, temporal, semantic</span></article>
+          <article class="stat-card"><span class="stat-number">∞</span><span class="stat-label">ways to be wrong</span><span class="stat-detail">recovery is part of the score</span></article>
+        </div>
+      </section>
+
+      <section class="section tasks-section" id="tasks">
+        <div class="shell">
+          <div class="section-kicker">02 / Task suite</div>
+          <div class="tasks-heading"><h2>Messy by design<span class="accent">.</span></h2><p>Controlled chaos, instrumented end-to-end. Every episode introduces a small change that a one-shot policy was never told to expect.</p></div>
+          <div class="task-list">
+            <article class="task-row"><span class="task-index">01</span><div><h3>Visual drift</h3><p>Lighting, texture, clutter, and viewpoint shift between attempts.</p></div><span class="task-tag">SEE</span></article>
+            <article class="task-row"><span class="task-index">02</span><div><h3>Contact surprises</h3><p>Friction, weight, compliance, and object pose refuse to stay fixed.</p></div><span class="task-tag">FEEL</span></article>
+            <article class="task-row"><span class="task-index">03</span><div><h3>Moving targets</h3><p>Goals and constraints change while the robot is already acting.</p></div><span class="task-tag">TRACK</span></article>
+            <article class="task-row"><span class="task-index">04</span><div><h3>Recovery under pressure</h3><p>Partial success is not a failure state — it is the next observation.</p></div><span class="task-tag">ADAPT</span></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section method-section" id="method">
+        <div class="shell method-layout">
+          <div><div class="section-kicker">03 / Evaluation</div><h2>Reward the<br /><span>second move.</span></h2></div>
+          <div class="method-copy"><p class="lead">Mosaic-M turns adaptation into a first-class metric.</p><p>Beyond binary success, we report time-to-recovery, intervention cost, robustness across perturbations, and how gracefully a policy degrades. The result is a behavioral fingerprint — not just a leaderboard number.</p><a class="text-link" href="#news">See the scoring protocol <span>→</span></a></div>
+        </div>
+      </section>
+
+      <section class="release shell" id="news">
+        <div class="release-card"><div><div class="section-kicker">Built on CL-Manip</div><h2>One benchmark.<br /><span>Many ways forward.</span></h2><p>We are preparing the first public release: task definitions, evaluation code, baselines, and real-robot rollouts.</p></div><div class="release-side"><div class="status-pill"><span></span> In development</div><a class="button button-primary" href="mailto:hello@mosaic-m.ai">Get release updates <span>↗</span></a><small>Code and data will be released progressively.</small></div></div>
+      </section>
+    </main>
+
+    <footer class="site-footer shell"><span>© 2026 Mosaic-M / CL-Manip</span><span>Real-time adaptation for manipulation</span><span><a href="mailto:hello@mosaic-m.ai">Contact ↗</a></span></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
