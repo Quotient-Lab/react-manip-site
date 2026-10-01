@@ -3,99 +3,137 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0a0b0c" />
-    <meta name="description" content="Mosaic-M benchmarks real-time adaptation for manipulation under changing conditions." />
-    <title>Mosaic-M — Real-Time Adaptation for Manipulation</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <meta name="description" content="ReAct-Manip is a benchmark for real-time adaptation in robot manipulation." />
+    <title>ReAct-Manip: Real-Time Adaptation in Robot Manipulation</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="noise"></div>
     <header class="site-header">
-      <a class="wordmark" href="#top" aria-label="Mosaic-M home">
-        <span class="mark">M</span><span>MOSAIC<span class="accent">—M</span></span>
-      </a>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#benchmark">Benchmark</a>
-        <a href="#tasks">Tasks</a>
-        <a href="#method">Method</a>
-        <a href="#news">Updates</a>
-      </nav>
-      <a class="nav-cta" href="https://github.com/" target="_blank" rel="noreferrer">View on GitHub <span>↗</span></a>
+      <div class="container header-inner">
+        <a class="brand" href="#top">ReAct-Manip</a>
+        <nav aria-label="Primary navigation">
+          <a href="#background">Background</a>
+          <a href="#specification">Task Specification</a>
+          <a href="#task-catalog">16 Tasks</a>
+          <a href="#citation">Citation</a>
+        </nav>
+      </div>
     </header>
 
     <main id="top">
       <section class="hero">
         <div class="hero-media" aria-hidden="true">
-          <div class="media-tile tile-a"><video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?auto=format&fit=crop&w=900&q=80"><source src="https://cdn.coverr.co/videos/coverr-a-robotic-arm-1573/1080p.mp4" type="video/mp4" /></video></div>
-          <div class="media-tile tile-b"><video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=80"><source src="https://cdn.coverr.co/videos/coverr-robot-arm-1572/1080p.mp4" type="video/mp4" /></video></div>
-          <div class="media-tile tile-c"><video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=900&q=80"><source src="https://cdn.coverr.co/videos/coverr-robotic-arm-1574/1080p.mp4" type="video/mp4" /></video></div>
-          <div class="media-tile tile-d"><video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"><source src="https://cdn.coverr.co/videos/coverr-industrial-robot-1571/1080p.mp4" type="video/mp4" /></video></div>
-          <div class="media-tile tile-e"><video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=900&q=80"><source src="https://cdn.coverr.co/videos/coverr-robot-arm-1570/1080p.mp4" type="video/mp4" /></video></div>
-          <div class="media-tint"></div>
+          <div class="video-tile"><video autoplay muted loop playsinline preload="metadata" src="videos/ball_throwing.mp4"></video></div>
+          <div class="video-tile"><video autoplay muted loop playsinline preload="metadata" src="videos/box_pushing.mp4"></video></div>
+          <div class="video-tile"><video autoplay muted loop playsinline preload="metadata" src="videos/button_oracle1.mp4"></video></div>
+          <div class="video-tile"><video autoplay muted loop playsinline preload="metadata" src="videos/button_oracle2.mp4"></video></div>
+          <div class="video-tile"><video autoplay muted loop playsinline preload="metadata" src="videos/button_oracle4.mp4"></video></div>
+          <div class="video-tile"><video autoplay muted loop playsinline preload="metadata" src="videos/cart_driving.mp4"></video></div>
+          <div class="video-tile"><video autoplay muted loop playsinline preload="metadata" src="videos/conveyor_grasp.mp4"></video></div>
+          <div class="video-tile"><video autoplay muted loop playsinline preload="metadata" src="videos/erect_phone.mp4"></video></div>
+          <div class="video-tile"><video autoplay muted loop playsinline preload="metadata" src="videos/laptop_oracle0.mp4"></video></div>
+          <div class="video-tile"><video autoplay muted loop playsinline preload="metadata" src="videos/laptop_oracle1.mp4"></video></div>
+          <div class="video-tile"><video autoplay muted loop playsinline preload="metadata" src="videos/laptop_oracle2.mp4"></video></div>
+          <div class="video-tile"><video autoplay muted loop playsinline preload="metadata" src="videos/physical_flip.mp4"></video></div>
+          <div class="video-tile"><video autoplay muted loop playsinline preload="metadata" src="videos/physical_roll.mp4"></video></div>
+          <div class="video-tile"><video autoplay muted loop playsinline preload="metadata" src="videos/push.mp4"></video></div>
+          <div class="video-tile"><video autoplay muted loop playsinline preload="metadata" src="videos/rebalance_short_front_seed0.mp4"></video></div>
+          <div class="video-tile"><video autoplay muted loop playsinline preload="metadata" src="videos/record_seed2_fixed1.mp4"></video></div>
+          <div class="video-tile"><video autoplay muted loop playsinline preload="metadata" src="videos/ring_toss.mp4"></video></div>
+          <div class="video-tile"><video autoplay muted loop playsinline preload="metadata" src="videos/rolling_gamble.mov"></video></div>
+          <div class="video-tile"><video autoplay muted loop playsinline preload="metadata" src="videos/tilt_maze.mp4"></video></div>
+          <div class="hero-overlay"></div>
         </div>
-        <div class="hero-content shell">
-          <div class="eyebrow"><span class="eyebrow-dot"></span> Open benchmark · manipulation in the wild</div>
-          <h1>You can’t do<br /><em>everything right</em><br />with a single shot<span class="accent">.</span></h1>
-          <p class="hero-copy">Mosaic-M measures whether a robot can notice, recover, and adapt — in real time — when the world refuses to follow the script.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#benchmark">Explore the benchmark <span>↓</span></a>
-            <a class="button button-ghost" href="#method">Read the paper <span>↗</span></a>
-          </div>
-          <div class="hero-meta"><span>Built on <strong>CL-Manip</strong></span><span class="line"></span><span>2026 release candidate</span></div>
-        </div>
-        <div class="scroll-hint"><span>Scroll to explore</span><span class="scroll-line"></span></div>
-      </section>
-
-      <section class="signal-strip">
-        <div class="shell signal-grid">
-          <div class="signal-label">The premise</div>
-          <p>Strong manipulation is not a single perfect action. It is a continuous loop of <b>perception → action → feedback → recovery</b>.</p>
-          <div class="signal-arrow">↘</div>
-        </div>
-      </section>
-
-      <section class="section shell" id="benchmark">
-        <div class="section-intro">
-          <div class="section-kicker">01 / Benchmark</div>
-          <h2>Test the moment<br /><span>things change.</span></h2>
-          <p>Most manipulation benchmarks reward getting the first move right. Mosaic-M asks a harder question: can your policy keep going when objects slip, goals shift, and observations arrive late?</p>
-        </div>
-        <div class="stat-grid">
-          <article class="stat-card"><span class="stat-number">08</span><span class="stat-label">real-world task families</span><span class="stat-detail">from pick-and-place to articulated objects</span></article>
-          <article class="stat-card"><span class="stat-number">04</span><span class="stat-label">adaptation regimes</span><span class="stat-detail">visual, physical, temporal, semantic</span></article>
-          <article class="stat-card"><span class="stat-number">∞</span><span class="stat-label">ways to be wrong</span><span class="stat-detail">recovery is part of the score</span></article>
-        </div>
-      </section>
-
-      <section class="section tasks-section" id="tasks">
-        <div class="shell">
-          <div class="section-kicker">02 / Task suite</div>
-          <div class="tasks-heading"><h2>Messy by design<span class="accent">.</span></h2><p>Controlled chaos, instrumented end-to-end. Every episode introduces a small change that a one-shot policy was never told to expect.</p></div>
-          <div class="task-list">
-            <article class="task-row"><span class="task-index">01</span><div><h3>Visual drift</h3><p>Lighting, texture, clutter, and viewpoint shift between attempts.</p></div><span class="task-tag">SEE</span></article>
-            <article class="task-row"><span class="task-index">02</span><div><h3>Contact surprises</h3><p>Friction, weight, compliance, and object pose refuse to stay fixed.</p></div><span class="task-tag">FEEL</span></article>
-            <article class="task-row"><span class="task-index">03</span><div><h3>Moving targets</h3><p>Goals and constraints change while the robot is already acting.</p></div><span class="task-tag">TRACK</span></article>
-            <article class="task-row"><span class="task-index">04</span><div><h3>Recovery under pressure</h3><p>Partial success is not a failure state — it is the next observation.</p></div><span class="task-tag">ADAPT</span></article>
+        <div class="container hero-content">
+          <p class="eyebrow">Benchmark for robot manipulation</p>
+          <h1>ReAct-Manip</h1>
+          <p class="subtitle">Benchmarking Real-Time Adaptation in Robot Manipulation</p>
+          <p class="abstract">Can a robot notice that its first move was wrong, and make the next move better?</p>
+          <div class="actions">
+            <a class="button primary" href="https://github.com/Quotient-Lab/react-manip-site">Code <span>↗</span></a>
+            <a class="button" href="#background">Read the benchmark <span>↓</span></a>
           </div>
         </div>
       </section>
 
-      <section class="section method-section" id="method">
-        <div class="shell method-layout">
-          <div><div class="section-kicker">03 / Evaluation</div><h2>Reward the<br /><span>second move.</span></h2></div>
-          <div class="method-copy"><p class="lead">Mosaic-M turns adaptation into a first-class metric.</p><p>Beyond binary success, we report time-to-recovery, intervention cost, robustness across perturbations, and how gracefully a policy degrades. The result is a behavioral fingerprint — not just a leaderboard number.</p><a class="text-link" href="#news">See the scoring protocol <span>→</span></a></div>
+      <section class="section" id="background">
+        <div class="container">
+          <div class="section-heading">
+            <span class="section-number">01</span>
+            <h2>Background &amp; Significance</h2>
+          </div>
+          <div class="prose">
+            <p>Current robot manipulation benchmarks primarily evaluate whether a policy can complete a task under a fixed set of initial conditions. This setting is useful for measuring basic competence, but it does not fully capture the demands of physical interaction. In the real world, perception is incomplete, contact dynamics are uncertain, objects move, and task conditions can change after execution has already begun.</p>
+            <p>ReAct-Manip is designed to measure the capability that follows: whether a robot can recognize that its current plan is no longer sufficient, use new observations to update its behavior, and recover without relying on a task-specific reset or privileged intervention. By treating adaptation as part of manipulation rather than as an exceptional failure case, the benchmark provides a more realistic measure of robustness for physical AI systems.</p>
+          </div>
         </div>
       </section>
 
-      <section class="release shell" id="news">
-        <div class="release-card"><div><div class="section-kicker">Built on CL-Manip</div><h2>One benchmark.<br /><span>Many ways forward.</span></h2><p>We are preparing the first public release: task definitions, evaluation code, baselines, and real-robot rollouts.</p></div><div class="release-side"><div class="status-pill"><span></span> In development</div><a class="button button-primary" href="mailto:hello@mosaic-m.ai">Get release updates <span>↗</span></a><small>Code and data will be released progressively.</small></div></div>
+      <section class="section shaded" id="specification">
+        <div class="container">
+          <div class="section-heading">
+            <span class="section-number">02</span>
+            <h2>Task Specification</h2>
+          </div>
+          <div class="prose">
+            <p>Each ReAct-Manip episode begins with a manipulation objective, an initial observation, and a nominal execution condition. After the policy has started acting, the episode introduces a controlled change that was not specified in the initial instruction. The change may affect visual appearance, object pose, contact dynamics, target location, or the degree of task completion.</p>
+            <p>A complete task specification contains the initial scene and instruction, the robot embodiment and action space, the perturbation event and its timing, the available observations, and the success criteria. Policies are evaluated in both nominal and perturbed conditions. The central comparison is not only whether the robot succeeds, but whether it can detect the change, adapt its actions, and complete the task with minimal additional time or intervention.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="task-catalog">
+        <div class="container">
+          <div class="section-heading">
+            <span class="section-number">03</span>
+            <h2>Task Spec Catalog</h2>
+          </div>
+          <div class="prose task-intro">
+            <p>ReAct-Manip organizes the current CL-Manip suite into 16 core task specifications. Robot-specific and interactive variants are treated as evaluation configurations of the same task family rather than counted as separate tasks.</p>
+          </div>
+          <div class="task-catalog">
+            <article class="task-spec"><span class="task-id">01</span><div><h3>Ball to Target Hole</h3><p>Control a ball on an inclined board, hold it inside a target region, and guide it through a designated hole.</p><small>Balance · staged completion</small></div></article>
+            <article class="task-spec"><span class="task-id">02</span><div><h3>Box Insertion</h3><p>Push a block into a constrained slot under uncertain friction and asymmetric contact conditions.</p><small>Contact-rich pushing · alignment</small></div></article>
+            <article class="task-spec"><span class="task-id">03</span><div><h3>Button–Indicator Matching</h3><p>Use visual feedback to identify the button connected to a requested indicator and hold it long enough to score.</p><small>Visual grounding · sequential events</small></div></article>
+            <article class="task-spec"><span class="task-id">04</span><div><h3>Conveyor Grasp</h3><p>Sort moving objects by category into separate baskets while preserving the examples and avoiding mixed placements.</p><small>Moving objects · semantic sorting</small></div></article>
+            <article class="task-spec"><span class="task-id">05</span><div><h3>Cup–Lid Matching</h3><p>Match lids to cups by geometry and place each lid so that the final fit is physically stable.</p><small>Fine placement · object matching</small></div></article>
+            <article class="task-spec"><span class="task-id">06</span><div><h3>Curling Push</h3><p>Push a curling stone once, then release it and rely on its motion to settle inside a target circle.</p><small>Open-loop dynamics · release control</small></div></article>
+            <article class="task-spec"><span class="task-id">07</span><div><h3>Find Object in Drawer</h3><p>Open a drawer, identify the requested object among distractors, and place it into a storage box.</p><small>Search · articulation · retrieval</small></div></article>
+            <article class="task-spec"><span class="task-id">08</span><div><h3>Laptop into Drawer</h3><p>Grasp a laptop, reorient it through a restricted opening, place it inside, and close the drawer.</p><small>Articulated object · reorientation</small></div></article>
+            <article class="task-spec"><span class="task-id">09</span><div><h3>Leveling Board</h3><p>Select and arrange shims to level a board, then complete a physical verification step with a slider.</p><small>Multi-step assembly · geometric reasoning</small></div></article>
+            <article class="task-spec"><span class="task-id">10</span><div><h3>Paddle Juggle</h3><p>Maintain repeated ball–paddle interactions over time, recovering from changes in timing and contact state.</p><small>Continuous control · sustained success</small></div></article>
+            <article class="task-spec"><span class="task-id">11</span><div><h3>Pan Flip</h3><p>Use a pan to toss a rigid object, flip its face in the air, and catch it back inside the pan.</p><small>Dynamic manipulation · interception</small></div></article>
+            <article class="task-spec"><span class="task-id">12</span><div><h3>Phone Power-On</h3><p>Locate and press the power control on a phone under varying initial pose and visual conditions.</p><small>Precise contact · visual localization</small></div></article>
+            <article class="task-spec"><span class="task-id">13</span><div><h3>Pitch Ball into Pot</h3><p>Grasp a ball, swing through a release trajectory, and land the ball inside a pot.</p><small>Throwing · timing and dynamics</small></div></article>
+            <article class="task-spec"><span class="task-id">14</span><div><h3>Rail Ball to Cup</h3><p>Place a ball on descending rails so that it rolls through the valley, launches, and lands in a cup.</p><small>Indirect control · trajectory planning</small></div></article>
+            <article class="task-spec"><span class="task-id">15</span><div><h3>Ring Toss</h3><p>Release a ring toward a target peg and accumulate score across targets with different distances and values.</p><small>Goal-directed throwing · scoring</small></div></article>
+            <article class="task-spec"><span class="task-id">16</span><div><h3>Rope Hang &amp; Turntable</h3><p>Handle articulated or underactuated objects: either swing a chain over a bar, or calibrate a rotating scoring surface and release at the right time.</p><small>Underactuated dynamics · online calibration</small></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section compact-section" id="citation">
+        <div class="container">
+          <div class="section-heading">
+            <span class="section-number">04</span>
+            <h2>Citation</h2>
+          </div>
+          <div class="citation-section">
+          <pre><code>@inproceedings{reactmanip2026,
+  title     = {ReAct-Manip: Benchmarking Real-Time Adaptation in Robot Manipulation},
+  author    = {The ReAct-Manip Team},
+  year      = {2026}
+}</code></pre>
+          <p class="contact">Questions or benchmark submissions: <a href="mailto:hello@react-manip.org">hello@react-manip.org</a></p>
+        </div>
       </section>
     </main>
 
-    <footer class="site-footer shell"><span>© 2026 Mosaic-M / CL-Manip</span><span>Real-time adaptation for manipulation</span><span><a href="mailto:hello@mosaic-m.ai">Contact ↗</a></span></footer>
-    <script src="script.js"></script>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>ReAct-Manip · 2026</span>
+        <span>Real-time adaptation in robot manipulation</span>
+      </div>
+    </footer>
   </body>
 </html>
